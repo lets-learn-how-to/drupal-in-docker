@@ -88,7 +88,16 @@
  * );
  * @endcode
  */
-$databases = [];
+$databases['default']['default'] = [
+    'database' => getenv('MYSQL_DATABASE'),
+    'username' => getenv('MYSQL_USER'),
+    'password' => getenv('MYSQL_PASSWORD'),
+    'host' => getenv('MYSQL_HOSTNAME'),
+    'port' => '3306',
+    'driver' => 'mysql',
+    'prefix' => '',
+    'collation' => 'utf8mb4_general_ci',
+];
 
 /**
  * Customizing database settings.
@@ -768,3 +777,4 @@ $settings['entity_update_batch_size'] = 50;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+$config_directories['sync'] = '../config/sync';
